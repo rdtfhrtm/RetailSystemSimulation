@@ -101,6 +101,10 @@ def getUserKey():
         print(f"{'-'*11}\n--WELCOME--\n{'-'*11}\n")
         welc = "Greetings, FAST Super Store User!"
         moving_print(welc, speed=0.01)
+        fk = list(user.keys())[1]
+        lk = list(user.keys())[-1]
+
+        print(f"\n\n\nFOR PURWADHIKA SCORING ONLY\nADMIN MENU USER CODE: ADMIN\nCUSTOMER MENU USER CODE: {fk} - {lk}")
         a = input("\n\nEnter your user code ('exit' to quit program) : ").upper()
         if a == "EXIT":
             cleartrm()
@@ -302,7 +306,8 @@ def showTempDict(tempdict):
 def getAdmPass():
     while True:
         cleartrm()
-        a = input("\n\nEnter Password ('cancel' to cancel): ")
+        print("\nFOR PURWADHIKA SCORING ONLY\nPASSWORD : asd")
+        a = input("\nEnter Password ('cancel' to cancel): ")
         if a.lower() == "cancel":
             return 0
         elif a == user["ADMIN"][1]:
@@ -858,7 +863,6 @@ while flag == 1:
                                 tempdict = {i: item.get(i) for i in item if item[i][3] > 0}
                                 tempdict = dict(sorted(tempdict.items(), key = lambda i:i[1][3], reverse= True))
                                 cleartrm()
-                                
                                 if len(tempdict) > 0:
                                     while True:
                                         cleartrm()
@@ -976,7 +980,7 @@ while flag == 1:
                                 city = user[userKey][2]
                                 phonenum = user[userKey][3]
                                 print(f"\n\nTotal Quantity : {totalqty}")
-                                print(f"Grand Total : {grandtotal}\n\n")
+                                print(f"Grand Total    : {grandtotal}\n\n")
                                 print(f"Deliver to \t\t: {address}, {city}")
                                 print(f"Customer Contact Number : {phonenum}")
                                 ccart = input("\n\nDo you want to check out items in your cart?\n('yes' to proceeed, 'back' to go back): ").lower()
