@@ -101,7 +101,7 @@ def getUserKey():
         print(f"{'-'*11}\n--WELCOME--\n{'-'*11}\n")
         welc = "Greetings, FAST Super Store User!"
         moving_print(welc, speed=0.01)
-        a = input("\n\nEnter your user code ('exit' to quit program): ").upper()
+        a = input("\n\nEnter your user code ('exit' to quit program) : ").upper()
         if a == "EXIT":
             cleartrm()
             print('\n\n\n')
@@ -456,10 +456,19 @@ def partialupdate(col,dict,key,pos):
             print("Input cannot be blanked!")
 
     cleartrm()
-    print(f"\nNew {col} : {parinp}")
+    print(f"\nNew {col} for user {key} : {parinp}")
     conf1 = input("\nDo you wish to proceed with the update? (y/n) : ").lower()
     if conf1 == 'y':
         dict[key][pos] = parinp
+        cleartrm()
+        print(f'\n\nData for {key}\n')
+        print(f'-{"-"*90}-')
+        print(f"\n{key.ljust(8)}|"
+                f"{dict[key][0].ljust(25)}|"
+                f"{dict[key][1].ljust(27)}|"
+                f"{dict[key][2].ljust(15)}|"
+                f"{dict[key][3].ljust(12)}|"
+                f"{dict[key][4]}")
         input("\nUser updated!\nPress enter to continue...")
 
 #main menu ===================================
@@ -600,6 +609,15 @@ while flag == 1:
                                                 if conf == 'y':
                                                     for i,j in enumerate([a,b,c,d]):
                                                         user[x][i] = j.title()
+                                                    cleartrm()
+                                                    print(f'\n\nData for {x}\n')
+                                                    print(f'-{"-"*90}-')
+                                                    print(f"\n{x.ljust(8)}|"
+                                                            f"{user[x][0].ljust(25)}|"
+                                                            f"{user[x][1].ljust(27)}|"
+                                                            f"{user[x][2].ljust(15)}|"
+                                                            f"{user[x][3].ljust(12)}|"
+                                                            f"{user[x][4]}")
                                                     input("\nUser updated!\nPress enter to continue...")
                                                     break
                                                 else:
