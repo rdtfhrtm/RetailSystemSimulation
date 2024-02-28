@@ -5,79 +5,70 @@ import sys
 #keyid, name, address, city, phone, money deposit,dictionary of item cart
 user = {
     "ADMIN": ["admin", "asd"],
-    "CUST1": ["Andy Warhol", "312 E 2 Street", "Hummelstown", "233-847-7561", 400, {}],
-    "CUST2": ["John Wick", "181 N Pottstown Pike", "Exton", "932-814-0012", 900, {}],
-    "CUST3": ["Peggy Gou", "57 Kensington Street", "Philadelphia", "523-756-3314", 10, {}],
-    "CUST4": ["Justin Bieber", "90 Street 3 Avenue", "New York City", "432-343-5673", 10000, {}],
-    "CUST5": ["Justin Timberlake", "18 Bleecker Street", "New York City", "717-905-2934", 3000, {}],
-    "CUST6": ["Michael Jordan", "23 North Street", "Chicago", "312-555-1234", 500, {}],
-    "CUST7": ["LeBron James", "6 South Avenue", "Los Angeles", "213-555-5678", 700, {}],
-    "CUST8": ["Kobe Bryant", "8 West Street", "Los Angeles", "213-555-8765", 200, {}],
-    "CUST9": ["Serena Williams", "10 E Jo Street", "Miami", "305-555-4321", 1000, {}],
-    "CUST10": ["Tom Brady", "12 East 2 Street", "Tampa Bay", "813-555-9876", 1500, {}],
-    "CUST11": ["Michael Phelps", "14 South Avenue", "Baltimore", "410-555-2468", 800, {}],
-    "CUST12": ["Lionel Messi", "16 West Wash Street", "Barcelona", "123-456-7890", 3000, {}],
-    "CUST13": ["Cristiano Ronaldo", "18 North Street", "Turin", "456-789-0123", 2000, {}],
-    "CUST14": ["Neymar Jr", "20 E Ronald Drive", "Paris", "789-012-3456", 4000, {}],
-    "CUST15": ["Virat Kohli", "22 E Mary Street Pike", "Delhi", "012-345-6789", 600, {}],
-    "CUST16": ["Roger Federer", "24 North White Street", "Zurich", "345-678-9012", 900, {}],
-    "CUST17": ["Rafael Nadal", "26 West Street Springs", "Mallorca", "678-901-2345", 1200, {}],
-    "CUST18": ["Lewis Hamilton", "28 Wendi Street", "Monaco", "901-234-5678", 1800, {}],
-    "CUST19": ["Sebastian Vettel", "30 Xumse 22 Street", "Heppenheim", "234-567-8901", 2200, {}],
-    "CUST20": ["Max Verstappen", "32 Zumba Avenue", "Montfort", "567-890-1234", 2500, {}]
+    "CUST001": ["Andy Warhol", "312 E 2 Street", "Hummelstown", "233-847-7561", 400, {}],
+    "CUST002": ["John Wick", "181 N Pottstown Pike", "Exton", "932-814-0012", 900, {}],
+    "CUST003": ["Peggy Gou", "57 Kensington Street", "Philadelphia", "523-756-3314", 10, {}],
+    "CUST004": ["Justin Bieber", "90 Street 3 Avenue", "New York City", "432-343-5673", 10000, {}],
+    "CUST005": ["Justin Timberlake", "18 Bleecker Street", "New York City", "717-905-2934", 3000, {}],
+    "CUST006": ["Michael Jordan", "23 North Street", "Chicago", "312-555-1234", 500, {}],
+    "CUST007": ["LeBron James", "6 South Avenue", "Los Angeles", "213-555-5678", 700, {}],
+    "CUST008": ["Kobe Bryant", "8 West Street", "Los Angeles", "213-555-8765", 200, {}],
+    "CUST009": ["Serena Williams", "10 E Jo Street", "Miami", "305-555-4321", 1000, {}],
+    "CUST010": ["Tom Brady", "12 East 2 Street", "Tampa Bay", "813-555-9876", 1500, {}],
+    "CUST011": ["Michael Phelps", "14 South Avenue", "Baltimore", "410-555-2468", 800, {}],
+    "CUST012": ["Lionel Messi", "16 West Wash Street", "Barcelona", "123-456-7890", 3000, {}],
+    "CUST013": ["Cristiano Ronaldo", "18 North Street", "Turin", "456-789-0123", 2000, {}],
+    "CUST014": ["Neymar Jr", "20 E Ronald Drive", "Paris", "789-012-3456", 4000, {}],
+    "CUST015": ["Virat Kohli", "22 E Mary Street Pike", "Delhi", "012-345-6789", 600, {}],
+    "CUST016": ["Roger Federer", "24 North White Street", "Zurich", "345-678-9012", 900, {}],
+    "CUST017": ["Rafael Nadal", "26 West Street Springs", "Mallorca", "678-901-2345", 1200, {}],
+    "CUST018": ["Lewis Hamilton", "28 Wendi Street", "Monaco", "901-234-5678", 1800, {}],
+    "CUST019": ["Sebastian Vettel", "30 Xumse 22 Street", "Heppenheim", "234-567-8901", 2200, {}],
+    "CUST020": ["Max Verstappen", "32 Zumba Avenue", "Montfort", "567-890-1234", 2500, {}]
 }
 
 #keyid, name, price, stock, discount rate, category
 item = {
-    "ITEM1": ["Gaming Chair", 400, 300, 0, "Computer"],
-    "ITEM2": ["Spoon", 5, 5000, 10, "Kitchen"],
-    "ITEM3": ["Glass Cup", 9, 1000, 0, "Kitchen"],
-    "ITEM4": ["Steelseries Keyboard", 60, 30, 40, "Computer"],
-    "ITEM5": ["Flower Vase", 6, 25, 20, "Ornament"],
-    "ITEM6": ["Jordan Sneakers", 200, 10, 10, "Wearable"],
-    "ITEM7": ["Coffee Machine", 500, 100, 0, "Kitchen"],
-    "ITEM8": ["Steak Knives", 3, 3000, 5, "Kitchen"],
-    "ITEM9": ["Ice Cubes", 2, 1000, 0, "Food"],
-    "ITEM10": ["Lemon Bags", 7, 3000, 0, "Food"],
-    "ITEM11": ["Bed Matress", 1500, 20, 30, "Furniture"],
-    "ITEM12": ["Wooden Table", 30, 40, 25, "Furniture"],
-    "ITEM13": ["Bed Lamp", 4, 50, 20, "Electronics"],
-    "ITEM14": ["White Phone", 20, 600, 15, "Electronics"],
-    "ITEM15": ["Brown Sofa", 50, 760, 30, "Furniture"],
-    "ITEM16": ["Speaker", 650, 330, 23, "Electronics"],
-    "ITEM17": ["Bed Nightstand", 100, 400, 0, "Furniture"],
-    "ITEM18": ["Silver Plate", 35, 50, 20, "Kitchen"],
-    "ITEM19": ["Bookshelf", 265, 60, 0, "Furniture"],
-    "ITEM20": ["Black Mirror", 30, 40, 0, "Home"],
-    "ITEM21": ["Silver Fridge", 2000, 70, 25, "Kitchen"],
-    "ITEM22": ["Red Oven", 406, 30, 16, "Kitchen"],
-    "ITEM23": ["Wooden Bed", 560, 20, 0, "Home"],
-    "ITEM24": ["Lemon Juice", 6, 10, 0, "Food"],
-    "ITEM25": ["Digital Clock", 100, 30, 40, "Home"],
-    "ITEM26": ["Tube Television", 1000, 400, 10, "Electronics"],
-    "ITEM27": ["Basketball", 15, 70, 0, "Sports"],
-    "ITEM28": ["Electric Guitar", 4206, 90, 30, "Music"],
-    "ITEM29": ["Coughing Syrup", 6, 2000, 0, "Medicine"],
-    "ITEM30": ["Lego Set", 55, 1000, 0, "Toys"],
-    "ITEM31": ["Drum Kit", 1000, 30, 25, "Music"],
-    "ITEM32": ["Yeezy Sneakers", 500, 50, 0, "Wearable"],
-    "ITEM33": ["NMD Sneakers", 120, 33, 30, "Wearable"],
-    "ITEM34": ["Chicken Nuggets", 8, 9000, 0, "Food"],
-    "ITEM35": ["Chicken Costume", 320, 55, 50, "Wearable"],
-    "ITEM36": ["Chicken Stickers", 2, 1100, 0, "Home"],
-    "ITEM37": ["Roland Keyboard", 700, 13, 5, "Music"],
-    "ITEM38": ["Fat Chicken Pillow", 34, 900, 15, "Home"],
-    "ITEM39": ["Flat Television", 3000, 100, 30, "Electronics"],
-    "ITEM40": ["Flu Syrup", 4, 1322, 0, "Medicine"]
+    "ITEM001": ["Red Gaming Chair", 400, 300, 0, "Computer"],
+    "ITEM002": ["Skech Sneakers", 120, 33, 30, "Wearable"],
+    "ITEM003": ["Chicken Costume", 320, 55, 50, "Wearable"],
+    "ITEM004": ["Steelseries Keyboard", 60, 30, 40, "Computer"],
+    "ITEM005": ["Flower Vase", 6, 25, 20, "Ornament"],
+    "ITEM006": ["Jordan Sneakers", 200, 10, 10, "Wearable"],
+    "ITEM007": ["Coffee Machine", 500, 100, 0, "Kitchen"],
+    "ITEM008": ["Steak Knives", 3, 3000, 5, "Kitchen"],
+    "ITEM009": ["Fat Chicken Pillow", 34, 900, 15, "Home"],
+    "ITEM010": ["Red Lemon Bags", 7, 3000, 0, "Food"],
+    "ITEM011": ["Bed Matress", 1500, 20, 30, "Furniture"],
+    "ITEM012": ["Wooden Table", 30, 40, 25, "Furniture"],
+    "ITEM013": ["Bed Lamp", 4, 50, 20, "Electronics"],
+    "ITEM014": ["White Phone", 20, 600, 15, "Electronics"],
+    "ITEM015": ["Brown Sofa", 50, 760, 30, "Furniture"],
+    "ITEM016": ["Yeezy Sneakers", 500, 50, 0, "Wearable"],
+    "ITEM017": ["Bed Nightstand", 100, 400, 0, "Furniture"],
+    "ITEM018": ["Flu Syrup", 4, 1322, 0, "Medicine"],
+    "ITEM019": ["Roland Keyboard", 700, 13, 5, "Music"],
+    "ITEM020": ["Black Mirror", 30, 40, 0, "Home"],
+    "ITEM021": ["Flat Television", 3000, 100, 30, "Electronics"],
+    "ITEM022": ["Red Oven", 406, 30, 16, "Kitchen"],
+    "ITEM023": ["Wooden Bed", 560, 20, 0, "Home"],
+    "ITEM024": ["Lemon Juice", 6, 10, 0, "Food"],
+    "ITEM025": ["Chicken Nuggets", 8, 9000, 0, "Food"],
+    "ITEM026": ["Tube Television", 1000, 400, 10, "Electronics"],
+    "ITEM027": ["Basketball", 15, 70, 0, "Sports"],
+    "ITEM028": ["Electric Guitar", 4206, 90, 30, "Music"],
+    "ITEM029": ["Coughing Syrup", 6, 2000, 0, "Medicine"],
+    "ITEM030": ["Lego Set", 55, 1000, 0, "Toys"],
+    "ITEM031": ["Drum Kit", 1000, 30, 25, "Music"]
 }
 
-transaction_history = ['CUST3', 'CUST3', 'CUST2','CUST1']
+transaction_history = ['CUST003', 'CUST003', 'CUST002','CUST001']
 
-transaction_history_amount = {"CUST2" : 10000, "CUST3": 900, "CUST1" : 400}
+transaction_history_amount = {"CUST002" : 10000, "CUST003": 900, "CUST001" : 400}
 
-processed_transaction = [['PT1','CUST1', {"Spoon":1,"Steak Knives":5},
+processed_transaction = [['PT001','CUST001', {"Spoon":1,"Steak Knives":5},
                           "312 E 2 Street", "Hummelstown", "233-847-7561"],
-                         ['PT2','CUST2', {"Flower vase":2},
+                         ['PT002','CUST002', {"Flower vase":2},
                           "181 N Pottstown Pike", "Exton", "932-814-0012"]
                         ]
 
@@ -95,7 +86,7 @@ def cleartrm():
     print('\033c', end='')
 
 def exitmen():
-        print('\033c', end='') 
+        cleartrm() 
         exs = "\n\nHave a Good One!"
         moving_print(exs, 0.03)
         sleep(1)
@@ -106,18 +97,18 @@ def menuHeader(x=0.01):
 
 def getUserKey():
     while True:
-        print('\033c')
+        cleartrm()
         print(f"{'-'*11}\n--WELCOME--\n{'-'*11}\n")
         welc = "Greetings, FAST Super Store User!"
         moving_print(welc, speed=0.01)
         a = input("\n\nEnter your user code ('exit' to quit program): ").upper()
         if a == "EXIT":
-            print('\033c', end = ' ')
+            cleartrm()
             print('\n\n\n')
             exitf = "- = G O O D   B Y E ! = -"
             moving_print(exitf, speed=0.05)
             sleep(1)
-            print('\033c', end = ' ')
+            cleartrm()
             exit()        
         elif a not in user.keys():
             print("User invalid!\n")
@@ -126,14 +117,14 @@ def getUserKey():
             return a
 
 def welcomingAdmin(userKey):
-    print('\033c', end = ' ')
+    cleartrm()
     menuHeader()
     print(f"Welcome, {user[userKey][0].title()}!")
 
 def welcomingGreetings(userKey):
     name = user[userKey][0].title()
     balance = user[userKey][4]
-    print('\033c', end = '')
+    cleartrm()
     menuHeader()
     print(f"Welcome, ", end = '')
     namewelc = f"{name}"
@@ -172,42 +163,42 @@ def menuCustomer():
 ''')
 
 def listUser(dict):
-    print('\033c', end=' ')
+    cleartrm()
     print(f"\n-== Showing all users  ==-")
     print(
-        f"\n{'CCODE'.ljust(7)}|"
-        f"{'NAME'.ljust(20)}|"
-        f"{'ADDRESS'.ljust(25)}|"
+        f"\n{'CCODE'.ljust(8)}|"
+        f"{'NAME'.ljust(25)}|"
+        f"{'ADDRESS'.ljust(27)}|"
         f"{'CITY'.ljust(15)}|"
-        f"{'PHONE'.ljust(12)}|Balance"
+        f"{'PHONE'.ljust(12)}|BALANCE"
     )
     for i in dict:
         if i == "ADMIN":
             continue
         else:
             print(
-                f"{i.ljust(7)}|"
-                f"{dict[i][0].ljust(20)}|"
-                f"{dict[i][1].ljust(25)}|"
+                f"{i.ljust(8)}|"
+                f"{dict[i][0].ljust(25)}|"
+                f"{dict[i][1].ljust(27)}|"
                 f"{dict[i][2].ljust(15)}|"
                 f"{dict[i][3].ljust(12)}|"
                 f"{dict[i][4]}"
             )
 
 def listItem(dict):
-    print('\033c', end = ' ')
+    cleartrm()
     print(f"\n-== Showing all items  ==-")
     print(
-        f"\n{'ICODE'.ljust(7)}|"
-        f"{'NAME'.ljust(20)}|"
+        f"\n{'ICODE'.ljust(8)}|"
+        f"{'NAME'.ljust(27)}|"
         f"{'PRICE'.ljust(8)}|"
         f"{'STOCK'.ljust(8)}|"
-        f"{'DISCOUNT RATE'.ljust(15)}|Category"
+        f"{'DISCOUNT RATE'.ljust(15)}|CATEGORY"
     )
     for i in dict:
         print(
-            f"{i.ljust(7)}|"
-            f"{str(dict[i][0]).ljust(20)}|"
+            f"{i.ljust(8)}|"
+            f"{str(dict[i][0]).ljust(27)}|"
             f"{str(dict[i][1]).ljust(8)}|"
             f"{str(dict[i][2]).ljust(8)}|"
             f"{str(dict[i][3]).ljust(15)}|"
@@ -286,21 +277,22 @@ def fillItem(s):
     return a,b,c,d,e
    
 def getCode(dict, action, obj):
-        while True:
-            x = input(f"\nEnter {obj}'s code to be {action} ('cancel' to cancel): ").upper()
-            if x == "CANCEL":
-                return x
-            elif x in list(dict.keys()):
-                return x
-            else:
-                print(f"Invalid {obj} code!\n")
+        x = input(f"\nEnter {obj}'s code to be {action} ('cancel' to cancel): ").upper()
+        if x == "CANCEL":
+            return x
+        elif x in list(dict.keys()):
+            return x
+        else:
+            print(f"Invalid {obj} code!")
+            sleep()
+            return 0
 
 def showTempDict(tempdict):
-    print(f"\n{'ICode'.ljust(6)}|{'Name'.ljust(20)}|{'Price'.ljust(8)}|{'Stock'.ljust(8)}|{'Discount Rate'.ljust(15)}|Category")
+    print(f"\n{'ICODE'.ljust(8)}|{'NAME'.ljust(27)}|{'PRICE'.ljust(8)}|{'STOCK'.ljust(8)}|{'DISCOUNT RATE'.ljust(15)}|CATEGORY")
     for i in tempdict:
         print(
-            f"{i.ljust(6)}|"
-            f"{str(tempdict[i][0]).ljust(20)}|"
+            f"{i.ljust(8)}|"
+            f"{str(tempdict[i][0]).ljust(27)}|"
             f"{str(tempdict[i][1]).ljust(8)}|"
             f"{str(tempdict[i][2]).ljust(8)}|"
             f"{str(tempdict[i][3]).ljust(15)}|"
@@ -309,7 +301,7 @@ def showTempDict(tempdict):
 
 def getAdmPass():
     while True:
-        print('\033c', end = ' ')
+        cleartrm()
         a = input("\n\nEnter Password ('cancel' to cancel): ")
         if a.lower() == "cancel":
             return 0
@@ -352,11 +344,11 @@ def addtocart(dict1,dict2, itemkey, userkey):
 
 def showcart(dict):
             print(f"\n-== Your Cart ==-")
-            print(f"\n{'ICode'.ljust(6)}|{'Name'.ljust(20)}|{'Quantity'.ljust(15)}|{'Price'.ljust(15)}|{'Discount Rate'.ljust(15)}")
+            print(f"\n{'ICODE'.ljust(8)}|{'NAME'.ljust(27)}|{'QUANTITY'.ljust(15)}|{'PRICE'.ljust(15)}|{'DISCOUNT RATE'.ljust(15)}")
             for i in dict:
                 print(
-                    f"{i.ljust(6)}|"
-                    f"{dict[i][0].ljust(20)}|"
+                    f"{i.ljust(8)}|"
+                    f"{dict[i][0].ljust(27)}|"
                     f"{str(dict[i][1]).ljust(15)}|"
                     f"{str(dict[i][2]).ljust(15)}|"
                     f"{str(dict[i][3]).ljust(15)}"
@@ -366,7 +358,7 @@ def showcartcheckout(dict):
             grandtotal = 0
             totalitem = 0
             print(f"\n-== Your Cart ==-")
-            print(f"\n{'Name'.ljust(20)}|{'Quantity'.ljust(15)}|{'Price'.ljust(15)}|{'Discount Rate'.ljust(15)}|{'Sub Total'.ljust(15)}")
+            print(f"\n{'NAME'.ljust(27)}|{'QUANTITY'.ljust(15)}|{'PRICE'.ljust(15)}|{'DISCOUNT RATE'.ljust(15)}|{'SUB TOTAL'.ljust(15)}")
             for i in dict:      
                     qty = dict[i][1]
                     price = dict[i][2]
@@ -376,7 +368,7 @@ def showcartcheckout(dict):
                     totalitem += qty
                     grandtotal += subtotal
                     print(
-                        f"{dict[i][0].ljust(20)}|"
+                        f"{dict[i][0].ljust(27)}|"
                         f"{str(qty).ljust(15)}|"
                         f"{str(price).ljust(15)}|"
                         f"{str(disc).ljust(15)}|"
@@ -405,14 +397,18 @@ def topupbal(dict, key):
         dict[key][4] += topup
 
 def showuserdetails(dict, st, ctc, trt, code):
-
-    print('\033c', end = '')
+    cleartrm()
     print(f"\n-== Showing details of customer: {code} ==-")
-    print(f"\n{'CCode'.ljust(6)}|{'Name'.ljust(20)}|{'Address'.ljust(25)}|{'City'.ljust(15)}|{'Phone'.ljust(12)}|Balance")
-    print(f"{code.ljust(6)}|{dict[code][0].ljust(20)}|{dict[code][1].ljust(25)}|{dict[code][2].ljust(15)}|{dict[code][3].ljust(12)}|{dict[code][4]}")
-    print(f"\nTotal transaction amount : {st}")
-    print(f"Distinct items in cart : {ctc}")
-    print(f"Transaction history count: {trt}")
+    print(f"\n{'CCODE'.ljust(8)}|{'NAME'.ljust(25)}|{'ADDRESS'.ljust(27)}|{'CITY'.ljust(15)}|{'PHONE'.ljust(12)}|BALANCE")
+    print(f"{code.ljust(8)}|"
+          f"{dict[code][0].ljust(25)}|"
+          f"{dict[code][1].ljust(27)}|"
+          f"{dict[code][2].ljust(15)}|"
+          f"{dict[code][3].ljust(12)}|"
+          f"{dict[code][4]}")
+    print(f"\nTotal transaction amount   : {st}")
+    print(f"Distinct items in cart     : {ctc}")
+    print(f"Transaction history count  : {trt}")
     input("\nPress enter to continue...")      
 
 def ptlastint(list):
@@ -435,7 +431,7 @@ def showpt(list):
 def get_price_range():
     while True:
         try:
-            print('\033c', end='')
+            cleartrm()
             priceRange = input("\nEnter price range separated by comma : ")
             listRange = priceRange.split(',')
             
@@ -451,11 +447,25 @@ def get_price_range():
             print("\nInvalid input!")
             sleep()
 
+def partialupdate(col,dict,key,pos):
+    while True:
+        parinp = input(f"\nEnter new {col} : ").title()
+        if parinp != "":
+            break
+        else:
+            print("Input cannot be blanked!")
+
+    cleartrm()
+    print(f"\nNew {col} : {parinp}")
+    conf1 = input("\nDo you wish to proceed with the update? (y/n) : ").lower()
+    if conf1 == 'y':
+        dict[key][pos] = parinp
+        input("\nUser updated!\nPress enter to continue...")
 
 #main menu ===================================
 flag = 1
 while flag == 1:
-    print('\033c', end = ' ')
+    cleartrm()
     userKey = getUserKey()
     flag2 = 1
     while flag2 == 1:
@@ -475,12 +485,12 @@ while flag == 1:
                                 
                                 if admInput == 1:
                                     #VIEW ALL USER
-                                    print('\033c', end = '')
+                                    cleartrm()
                                     listUser(user)
                                     input("\nPress enter to continue...")
                                 elif admInput == 2:
                                         #ADD USER
-                                        print('\033c', end='')
+                                        cleartrm()
                                         last_int = getlastkeyint(user)
                                         a,b,c,d = fillUser("('cancel' to cancel)")
                                         if a == "cancel":
@@ -492,98 +502,232 @@ while flag == 1:
                                             if [a,b,c,d] in dup_indices:
                                                 input("\nUser already exists!\nPress enter to continue...")        
                                             else:
-                                                newkey = "CUST"+str(last_int+1)        
-                                                user[newkey] = [a,b,c,d,0,{}]
-                                                input("\nNew user has been added!\nPress enter to continue...")
+                                                newkey = "CUST"+str(last_int+1).zfill(3)
+                                                cleartrm()
+                                                print(f"\n\nNew User: {newkey}")
+                                                print("--------------------")
+                                                print(f"New Name    : {a}")
+                                                print(f"New Address : {b}")
+                                                print(f"New City    : {c}")
+                                                print(f"New Phone   : {d}")
+
+                                                conf = input(f"\nDo you wish to create data for {newkey}? (y/n): ")
+                                                if conf == 'y':
+                                                    user[newkey] = [a,b,c,d,0,{}]
+                                                    input("\nNew user has been added!\nPress enter to continue...")
 
                                 elif admInput == 3:
                                     #EDIT USER
-                                    listUser(user)
-                                    x = getCode(user, "updated", "user")
+                                    while True:
+                                        listUser(user)
+                                        x = getCode(user, "updated", "user")
+                                        if x != 0:
+                                            break
                                     if x == 'CANCEL':
                                         break
                                     else:
-                                        a,b,c,d = fillUser('')
-                                        if a == "cancel":
-                                            break                                        
-                                        d = format_phonenum(d)
-                                        for i,j in enumerate([a,b,c,d]):
-                                            user[x][i] = j.title()
-                                        input("\nUser updated!\nPress enter to continue...")
+                                        while True:
+                                            cleartrm()
+                                            print(f"\n\nSelect Update Type for {x}")
+                                            print("--------------------")
+                                            print("1. Partial Update")
+                                            print("2. Full Update")
+                                                   
+                                            inp = input("\nSelect number of choice : ")
+
+                                            if inp == '1':
+                                                while True:
+                                                    cleartrm()
+                                                    print("\n\nSelect Column")
+                                                    print("--------------------")
+                                                    print("1. Name")
+                                                    print("2. Address")
+                                                    print("3. City")
+                                                    print("4. Phone Number")
+                                                    inp2 = input("\nSelect number of choice : ")
+
+                                                    if inp2 == '1':
+                                                        partialupdate("Name",user,x,0)        
+                                                        break
+
+                                                    elif inp2 == '2':
+                                                        partialupdate("Address",user,x,1)
+                                                        break
+
+                                                    elif inp2 == '3':
+                                                        partialupdate("City",user,x,2)
+                                                        break
+                                                    elif inp2 == '4':
+                                                        while True:
+                                                            parinp = input("\nEnter new user's phone : ")
+                                                            if parinp == "":
+                                                                print("Input cannot be blanked! \n")
+                                                            elif parinp.isnumeric() == False or len(parinp) != 10:
+                                                                print("Enter valid number!\n")    
+                                                            else:
+                                                                break 
+
+                                                        parinp = format_phonenum(parinp) 
+                                                        cleartrm()       
+                                                        print(f"\nNew phone : {parinp}")
+                                                        conf1 = input("\nDo you wish to proceed with the update? (y/n) : ")
+                                                        if conf1 == 'y':
+                                                            user[x][3] = parinp
+                                                            input("\nUser updated!\nPress enter to continue...")
+                                                            break
+                                                        else:
+                                                            break
+                                                    else:
+                                                        print("\nInvalid choice!")
+                                                        sleep()
+                                                break
+      
+                                            elif inp == '2':
+                                                cleartrm()
+                                                a,b,c,d = fillUser('')
+                                                if a == "cancel":
+                                                    break                                 
+                                                d = format_phonenum(d)
+                                                cleartrm()
+                                                print(f"\n\nNew Data")
+                                                print("---------------")
+                                                print(f"New Name    : {a}")
+                                                print(f"New Address : {b}")
+                                                print(f"New City    : {c}")
+                                                print(f"New Phone   : {d}")
+
+                                                conf = input(f"\nDo you wish to update the data for {x}? (y/n): ")
+                                                if conf == 'y':
+                                                    for i,j in enumerate([a,b,c,d]):
+                                                        user[x][i] = j.title()
+                                                    input("\nUser updated!\nPress enter to continue...")
+                                                    break
+                                                else:
+                                                    break
+                                            else:
+                                                print("\nInvalid choice!")
+                                                sleep()
 
                                 elif admInput == 4:
                                     #DELETE USER
-                                    listUser(user)
-                                    x = getCode(user, "deleted", "user")
+                                    while True:
+                                        listUser(user)
+                                        x = getCode(user, "deleted", "user")
+                                        if x != 0:
+                                            break                          
                                     if x == 'CANCEL':
                                         break
                                     else:
                                         if len(user[x][5]) > 0:
                                             input("\nUser cannot be deleted! User still has items in cart!\nPress enter to continue...")
                                         else:
-                                            user.pop(x)
-                                            if x in transaction_history_amount:
-                                                transaction_history_amount.pop(x)
-                                            input("\nUser deleted!\nPress enter to continue...")
+                                            cleartrm()
+                                            print(f"\n\n{x}")
+                                            print("---------------")
+                                            print(f"Name    : {user[x][0]}")
+                                            print(f"Address : {user[x][1]}")
+                                            print(f"City    : {user[x][2]}")
+                                            print(f"Phone   : {user[x][3]}")
+
+                                            conf = input(f"\nDo you wish to delete {x} data? (y/n): ")
+                                            if conf == 'y':
+                                                user.pop(x)
+                                                if x in transaction_history_amount:
+                                                    transaction_history_amount.pop(x)
+                                                input("\nUser deleted!\nPress enter to continue...")
+                                            else:
+                                                input("\n\nPress enter to continue...")
 
                                 elif admInput == 5:
                                     #VIEW ALL ITEMS
-                                    print('\033c', end = '')
+                                    cleartrm()
                                     listItem(item)
                                     input("\nPress enter to continue...")
 
                                 elif admInput == 6:
                                     #ADD ITEM
-                                    print('\033c', end = '')
+                                    cleartrm()
                                     last_int = getlastkeyint(item)
                                     a,b,c,d,e = fillItem("('cancel' to cancel)")
                                     if a == "Cancel":
                                         break
-                                    newkey = "ITEM"+str(last_int+1)
-                                    item[newkey] = [a.title(),b,c,d,e.title()]
-                                    input("\nNew item has been added!\nPress enter to continue...")
+                                    newkey = "ITEM"+str(last_int+1).zfill(3)
+                                    cleartrm()
+                                    print(f"\n\n{newkey}")
+                                    print(f"Name          : {a}")
+                                    print(f"Price         : {b}")
+                                    print(f"Stock         : {c}")
+                                    print(f"Discount Rate : {d}")
+                                    print(f"Category      : {e}")
+                                    conf = input(f"\nDo you wish to add this item ? (y/n): ")
+                                    if conf == 'y':
+                                        item[newkey] = [a.title(),b,c,d,e.title()]
+                                        input("\nNew item has been added!\nPress enter to continue...")
 
                                 elif admInput == 7:
                                     #EDIT ITEM
-                                    listItem(item)
-                                    x = getCode(item, "updated", "item")
+                                    while True:
+                                        listItem(item)
+                                        x = getCode(item, "updated", "item")
+                                        if x != 0:
+                                            break                                       
                                     if x == 'CANCEL':
                                         break
                                     else:
+                                        cleartrm()
                                         a,b,c,d,e = fillItem("")
                                         if a == "cancel":
                                             break                                        
                                         a = a.title()
                                         e = e.title()
-                                        for i,j in enumerate([a,b,c,d,e]):
-                                            item[x][i] = j
-                                        input("\nItem updated!\nPress enter to continue...")
+
+                                        cleartrm()
+                                        print(f"\n\n{x}")
+                                        print(f"Name          : {a}")
+                                        print(f"Price         : {b}")
+                                        print(f"Stock         : {c}")
+                                        print(f"Discount Rate : {d}")
+                                        print(f"Category      : {e}")
+                                        conf = input(f"\nDo you wish to update the item ? (y/n): ")
+                                        if conf == 'y':
+                                            for i,j in enumerate([a,b,c,d,e]):
+                                                item[x][i] = j
+                                            input("\nItem updated!\nPress enter to continue...")
 
                                 elif admInput == 8:
                                     #DELETE ITEM
-                                    listItem(item)
-                                    x = getCode(item, "deleted", "item")
+                                    while True:
+                                        listItem(item)
+                                        x = getCode(item, "deleted", "item")
+                                        if x != 0:
+                                            break       
+              
                                     if x == 'CANCEL':
                                         break
                                     else:
                                         dictdel = []
-
                                         for i in user:
                                             if i == "ADMIN":
                                                 continue
                                             elif x in user[i][5]:
-                                                dictdel.append(x)
-                                                
+                                                dictdel.append(x)     
                                         if len(dictdel) > 0:
                                             input("\nItem cannot be deleted! Item still in customer's cart!\nPress enter to continue...")   
                                         else:
-                                            item.pop(x)
-                                            input("\nItem deleted!\nPress enter to continue...")
+                                            conf = input(f"\nDo you wish to delete this item ? (y/n):")
+                                            if conf == 'y':
+                                                item.pop(x)
+                                                input("\nItem deleted!\nPress enter to continue...")
 
                                 elif admInput == 9:
                                     #SEARCH USER DETAILS
-                                    print('\033c', end = '')
-                                    x = getCode(user, "searched", "user")
+                                    cleartrm()
+                                    while True:
+                                        listUser(user)
+                                        x = getCode(user, "searched for details", "user")
+                                        if x != 0:
+                                            break                                        
+
                                     if x == 'CANCEL':
                                         break
                                     else:
@@ -597,23 +741,27 @@ while flag == 1:
 
                                 elif admInput == 10:
                                     #VIEW PROCESSED TRANSACTIONS
-                                    print('\033c', end = '')
-                                    print()
-                                    showpt(processed_transaction)                
+                                    while True:
+                                        cleartrm()
+                                        print()
+                                        showpt(processed_transaction)                
 
-                                    if len(processed_transaction) > 0:
-                                        ptid = [i[0] for i in processed_transaction]
-                                        ptinp = input("\nEnter transaction ID you want to complete ('cancel' to cancel): ").upper()
-
-                                        if ptinp in ptid:
-                                            processed_transaction = [i for i in processed_transaction if i[0] != ptinp]
-                                            input("\nTransaction has been completed!\nPress enter to continue...")
-                                        elif ptinp == 'CANCEL':
-                                            continue
+                                        if len(processed_transaction) > 0:
+                                            ptid = [i[0] for i in processed_transaction]
+                                            ptinp = input("\nEnter transaction ID you want to complete ('cancel' to cancel): ").upper()
+                                        
+                                            if ptinp in ptid:
+                                                processed_transaction = [i for i in processed_transaction if i[0] != ptinp]
+                                                input("\nTransaction has been completed!\nPress enter to continue...")
+                                                break
+                                            elif ptinp == 'CANCEL':
+                                                break
+                                            else:
+                                                print("\nTransaction not found!\n")
+                                                sleep()
                                         else:
-                                            input("\nTransaction not found!\nPress enter to continue...")
-                                    else:
-                                        input("\nNo ongoing transaction!\nPress enter to continue...")
+                                            input("\nNo ongoing transaction!\nPress enter to continue...")
+                                            break
 
                                 elif admInput == 11:
                                     #EXIT ADMIN MENU
@@ -638,12 +786,14 @@ while flag == 1:
                         #VIEW ALL ITEM
                         if cusInput == 1:
                             tempdict = item
-                            print('\033c', end='')
-                            print(f"\n-== Showing all items ==-")
-                            showTempDict(tempdict)
-
                             if len(tempdict) > 0:
-                                addcart =  getCode(tempdict, "added to cart", "item")
+                                while True:
+                                    cleartrm()
+                                    print(f"\n-== Showing all items ==-")
+                                    showTempDict(tempdict)
+                                    addcart =  getCode(tempdict, "added to cart", "item")
+                                    if addcart != 0:
+                                        break      
                                 if addcart == 'CANCEL':
                                             break
                                 else:
@@ -656,7 +806,7 @@ while flag == 1:
                         elif cusInput == 2:
                                 #SEARCH FOR ITEMS
                                 while True:
-                                    print('\033c', end='')
+                                    cleartrm()
                                     searchinp = input("\nWhat do you want to buy? ('cancel' to cancel) : ").strip().lower()
                                     if searchinp == "":
                                         print("\nInput cannot be blank!")
@@ -666,12 +816,15 @@ while flag == 1:
                                     else:
                                         tempdict = {i: item.get(i) for i in item if searchinp in item[i][0].lower()}
 
-                                        print('\033c', end = '')
-                                        print(f"\n-== Showing items result for {searchinp} ==-") 
-                                        showTempDict(tempdict)
-
+                                        cleartrm()
                                         if len(tempdict) > 0:
-                                            addcart =  getCode(tempdict, "added to cart", "item")
+                                            while True:
+                                                cleartrm()
+                                                print(f"\n-== Showing items result for {searchinp} ==-")
+                                                showTempDict(tempdict)
+                                                addcart =  getCode(tempdict, "added to cart", "item")
+                                                if addcart != 0:
+                                                    break    
                                             if addcart == 'CANCEL':
                                                         break
                                             else:
@@ -686,13 +839,16 @@ while flag == 1:
                                 #VIEW ITEMS ON SALE
                                 tempdict = {i: item.get(i) for i in item if item[i][3] > 0}
                                 tempdict = dict(sorted(tempdict.items(), key = lambda i:i[1][3], reverse= True))
-                                print('\033c', end='')
+                                cleartrm()
                                 
-                                print(f"\n-== Showing items on sale from highest to lowest discount rate ==-") 
-                                showTempDict(tempdict)
-
                                 if len(tempdict) > 0:
-                                    addcart =  getCode(tempdict, "added to cart", "item")
+                                    while True:
+                                        cleartrm()
+                                        print(f"\n-== Showing items on sale from highest to lowest discount rate ==-")
+                                        showTempDict(tempdict)
+                                        addcart =  getCode(tempdict, "added to cart", "item")
+                                        if addcart != 0:
+                                            break    
                                     if addcart == 'CANCEL':
                                                 break
                                     else:
@@ -709,9 +865,9 @@ while flag == 1:
                                 if item[i][4] not in category:
                                     category.append(item[i][4])
                             category.sort()
-                            print('\033c', end='')
+                            cleartrm()
                             while True:
-                                print('\033c', end='')        
+                                cleartrm()      
                                 print("\nAvailable Category : \n")
                                 for i in category:
                                     print("- "+i)
@@ -723,12 +879,16 @@ while flag == 1:
                                     sleep()
 
                             tempdict = {i: item.get(i) for i in item if item[i][4] == catinput}
-                            print('\033c', end=' ')
-                            print(f"\n-== Showing items in {catinput} category ==-") 
-                            showTempDict(tempdict)
-
+                            cleartrm()
+                        
                             if len(tempdict) > 0:
-                                addcart =  getCode(tempdict, "added to cart", "item")
+                                while True:
+                                        cleartrm()
+                                        print(f"\n-== Showing items in {catinput} category ==-") 
+                                        showTempDict(tempdict)
+                                        addcart =  getCode(tempdict, "added to cart", "item")
+                                        if addcart != 0:
+                                            break    
                                 if addcart == 'CANCEL':
                                             break
                                 else:
@@ -740,26 +900,33 @@ while flag == 1:
 
                         elif cusInput == 5:
                             #VIEW ITEMS BY PRICE RANGE
-                            print('\033c', end='')
+                            cleartrm()
                             listRange = get_price_range()
                             listRange = [int(i) for i in listRange]
                             listRange.sort()
-                            print('\033c', end='')
+                            cleartrm()
                             tempdict = {i: item.get(i) for i in item if listRange[0]<= item[i][1] <= listRange[1]}
                             tempdict = dict(sorted(tempdict.items(), key = lambda i:i[1][1]))
-                            print(f"\n-== Showing items ranging between ${listRange [0]} and ${listRange [1]} ==-")
-                            showTempDict(tempdict)
                             
-                            addcart =  getCode(tempdict, "added to cart", "item")
-                            if addcart == 'CANCEL':
-                                        break
+                            if len(tempdict) > 0:
+                                while True:
+                                        cleartrm()
+                                        print(f"\n-== Showing items ranging between ${listRange [0]} and ${listRange [1]} ==-") 
+                                        showTempDict(tempdict)
+                                        addcart =  getCode(tempdict, "added to cart", "item")
+                                        if addcart != 0:
+                                            break                                
+                                if addcart == 'CANCEL':
+                                            break
+                                else:
+                                    addtocart(item,user,addcart,userKey)
+                                    itemaddednotif()
                             else:
-                                addtocart(item,user,addcart,userKey)
-                                itemaddednotif()
+                                input("\nPress enter to continue...")
                                     
                         elif cusInput == 6:
                             #VIEW CART
-                            print('\033c', end='')
+                            cleartrm()
                             tempdict = user[userKey][5]
                             showcart(tempdict)
 
@@ -782,7 +949,7 @@ while flag == 1:
 
                         elif cusInput == 7:
                             #CHECK OUT CART
-                            print('\033c', end='')
+                            cleartrm()
                             tempdict = user[userKey][5]
                             grandtotal, totalqty = showcartcheckout(tempdict)
 
@@ -805,7 +972,7 @@ while flag == 1:
                                         input("\nPress enter to continue...")
                                     elif balance >= grandtotal:
                                         ptli = ptlastint(processed_transaction)
-                                        newpt = "PT"+str(ptli+1)
+                                        newpt = "PT"+str(ptli+1).zfill(3)
                                         dd = user[userKey][5]
                                         aa = {dd[i][0] : dd[i][1] for i in dd}
 
@@ -824,7 +991,7 @@ while flag == 1:
                             #TOP UP BALANCE
                             while True:
                                 try:
-                                    print('\033c', end='') 
+                                    cleartrm()
                                     print(f"\n-== Balance Top Up ==-") 
                                     balance = user[userKey][4]
                                     print(f"\n\nYour Balance : {balance}")
