@@ -6,4 +6,7 @@ Inspired by 'SCAN IT!' by Giant Food Stores that offers an easy way to shop. Wit
 
 How to Use:
 
-User can be admin and customer. to access admin menu, enter 'admin' as user code. and 'asd' as password. to access customer menu, user can select customer code between 'CUST001' and 'CUST020'. 
+User can act as an admin or customer. 
+To access admin menu, enter 'admin' as user code. and 'asd' as password. 
+To access customer menu, user can select customer code between 'CUST001' and 'CUST020'.
+Other than those codes, input will raise exception.
