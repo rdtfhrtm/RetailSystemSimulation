@@ -5,6 +5,7 @@ Inspired by 'SCAN IT!' by Giant Food Stores that offers an easy way to shop. Wit
 
 
 IMPORTANT - PLEASE READ
+
 How to Use:
 
 User can act as an admin or customer. 
