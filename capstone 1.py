@@ -801,7 +801,7 @@ while flag == 1:
 
                                 itemaddednotif()   
                             else:
-                                input("\nPress enter to continue...")
+                                input("\nNo Data for this condition! \nPress enter to continue...")
 
                         elif cusInput == 2:
                                 #SEARCH FOR ITEMS
@@ -832,7 +832,7 @@ while flag == 1:
                                             itemaddednotif() 
                                             break  
                                         else:
-                                            input("\nPress enter to continue...")
+                                            input("\nNo Data for this condition! \nPress enter to continue...")
                                             break
 
                         elif cusInput == 3:
@@ -856,7 +856,7 @@ while flag == 1:
 
                                     itemaddednotif()   
                                 else:
-                                    input("\nPress enter to continue...")                           
+                                    input("\nNo Data for this condition! \nPress enter to continue...")                           
                                 
                         elif cusInput == 4:
                             #VIEW ITEMS BY CATEGORY
@@ -896,7 +896,7 @@ while flag == 1:
 
                                 itemaddednotif()   
                             else:
-                                input("\nPress enter to continue...")
+                                input("\nNo Data for this condition! \nPress enter to continue...")
 
                         elif cusInput == 5:
                             #VIEW ITEMS BY PRICE RANGE
@@ -922,7 +922,7 @@ while flag == 1:
                                     addtocart(item,user,addcart,userKey)
                                     itemaddednotif()
                             else:
-                                input("\nPress enter to continue...")
+                                input("\nNo Data for this condition! \nPress enter to continue...")
                                     
                         elif cusInput == 6:
                             #VIEW CART
