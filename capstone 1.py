@@ -506,6 +506,8 @@ while flag == 1:
                                         #ADD USER
                                         cleartrm()
                                         last_int = getlastkeyint(user)
+                                        newkey = "CUST"+str(last_int+1).zfill(3)
+                                        print(f"\n\nNEW USER - {newkey}\n")
                                         a,b,c,d = fillUser("('cancel' to cancel)")
                                         if a == "cancel":
                                             break
@@ -516,9 +518,8 @@ while flag == 1:
                                             if [a,b,c,d] in dup_indices:
                                                 input("\nUser already exists!\nPress enter to continue...")        
                                             else:
-                                                newkey = "CUST"+str(last_int+1).zfill(3)
                                                 cleartrm()
-                                                print(f"\n\nNew User: {newkey}")
+                                                print(f"\n\nNEW USER - {newkey}")
                                                 print("--------------------")
                                                 print(f"New Name    : {a}")
                                                 print(f"New Address : {b}")
@@ -671,12 +672,14 @@ while flag == 1:
                                     #ADD ITEM
                                     cleartrm()
                                     last_int = getlastkeyint(item)
+                                    newkey = "ITEM"+str(last_int+1).zfill(3)
+                                    print(f"\n\nNEW ITEM - {newkey}\n")
                                     a,b,c,d,e = fillItem("('cancel' to cancel)")
                                     if a == "Cancel":
                                         break
-                                    newkey = "ITEM"+str(last_int+1).zfill(3)
                                     cleartrm()
-                                    print(f"\n\n{newkey}")
+                                    print(f"\n\nNEW ITEM - {newkey}")
+                                    print("--------------------")
                                     print(f"Name          : {a}")
                                     print(f"Price         : {b}")
                                     print(f"Stock         : {c}")
@@ -698,6 +701,7 @@ while flag == 1:
                                         break
                                     else:
                                         cleartrm()
+                                        print(f"\n\nUpdate for {x}\n\n")
                                         a,b,c,d,e = fillItem("")
                                         if a == "cancel":
                                             break                                        
@@ -706,6 +710,7 @@ while flag == 1:
 
                                         cleartrm()
                                         print(f"\n\n{x}")
+                                        print(f"-------------------")
                                         print(f"Name          : {a}")
                                         print(f"Price         : {b}")
                                         print(f"Stock         : {c}")
