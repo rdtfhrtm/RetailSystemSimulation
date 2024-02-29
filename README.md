@@ -12,3 +12,5 @@ User can act as an admin or customer.
 To access admin menu, enter 'admin' as user code. and 'asd' as password. 
 To access customer menu, user can select customer code between 'CUST001' and 'CUST020'.
 Other than those codes, input will raise exception.
+
+phone number for user should be 10 digits number only.
