@@ -104,7 +104,7 @@ def getUserKey():
         fk = list(user.keys())[1]
         lk = list(user.keys())[-1]
 
-        print(f"\n\n\nFOR PURWADHIKA SCORING ONLY\nADMIN MENU USER CODE: ADMIN\nCUSTOMER MENU USER CODE: {fk} - {lk}")
+        print(f"\n\n\nFOR PURWADHIKA SCORING ONLY\nADMIN MENU USER CODE: ADMIN\nCUSTOMER MENU USER CODE: {fk} UP TO {lk}")
         a = input("\n\nEnter your user code ('exit' to quit program) : ").upper()
         if a == "EXIT":
             cleartrm()
@@ -235,7 +235,7 @@ def fillUser(s):
         if d == "":
             print("Input cannot be blanked! \n")
         elif d.isnumeric() == False or len(d) != 10:
-            print("Enter valid number!\n")    
+            print("Enter valid number! Number should be 10 digits!\n")    
         else:
             break 
     return a.strip().title(),b.strip().title(),c.strip().title(),d.strip()
@@ -263,12 +263,14 @@ def fillItem(s):
     while True:
         c = input("Enter new item's stock : ")
         if c.isdigit() == True and int(c) >= 0:
+            c = int(c)
             break
         else:
             print("Input cannot be blanked / non-numeric / less than zero! \n")
     while True:
         d = input("Enter new item's discount rate : ")
         if d.isdigit() == True and 0 <= int(d) <= 80:
+            d = int(d)
             break
         else:
             print("Input cannot be blanked / non-numeric / less than zero / more than 80! \n")
@@ -454,6 +456,9 @@ def get_price_range():
 
 def partialupdate(col,dict,key,pos):
     while True:
+        cleartrm()
+        print(f"\n\nUpdate for {key}")
+        print(f"{'-'*15}")
         parinp = input(f"\nEnter new {col} : ").title()
         if parinp != "":
             break
@@ -461,7 +466,7 @@ def partialupdate(col,dict,key,pos):
             print("Input cannot be blanked!")
 
     cleartrm()
-    print(f"\nNew {col} for user {key} : {parinp}")
+    print(f"\n\nNew {col} for user {key} : {parinp}")
     conf1 = input("\nDo you wish to proceed with the update? (y/n) : ").lower()
     if conf1 == 'y':
         dict[key][pos] = parinp
@@ -475,6 +480,19 @@ def partialupdate(col,dict,key,pos):
                 f"{dict[key][3].ljust(12)}|"
                 f"{dict[key][4]}")
         input("\nUser updated!\nPress enter to continue...")
+
+def add_processed_tr(intadd):
+    newpt = "PT"+str(intadd).zfill(3)
+    dd = user[userKey][5]
+    aa = {dd[i][0] : dd[i][1] for i in dd}
+
+    ptlist = [newpt, userKey, aa, address, city, phonenum]
+    processed_transaction.append(ptlist)
+    
+    cartclearing_historyappending(userKey, transaction_history, transaction_history_amount, user, grandtotal)
+    new_balance = balance_subtracting(balance, grandtotal)
+    user[userKey][4] = round(new_balance,2)
+    input("\n\nItems have been checked out!\nPress enter to continue...")
 
 #main menu ===================================
 flag = 1
@@ -574,11 +592,13 @@ while flag == 1:
                                                         break
                                                     elif inp2 == '4':
                                                         while True:
+                                                            print(f"\n\nUpdate for {x}")
+                                                            print(f"{'-'*15}")
                                                             parinp = input("\nEnter new user's phone : ")
                                                             if parinp == "":
                                                                 print("Input cannot be blanked! \n")
                                                             elif parinp.isnumeric() == False or len(parinp) != 10:
-                                                                print("Enter valid number!\n")    
+                                                                print("Enter valid number! Number should be 10 digits!\n")    
                                                             else:
                                                                 break 
 
@@ -599,13 +619,15 @@ while flag == 1:
       
                                             elif inp == '2':
                                                 cleartrm()
+                                                print(f"\n\nUpdate for {x}")
+                                                print(f"{'-'*15}")
                                                 a,b,c,d = fillUser('')
                                                 if a == "cancel":
                                                     break                                 
                                                 d = format_phonenum(d)
                                                 cleartrm()
-                                                print(f"\n\nNew Data")
-                                                print("---------------")
+                                                print(f"\n\nNew Data for {x}")
+                                                print("---------------------")
                                                 print(f"New Name    : {a}")
                                                 print(f"New Address : {b}")
                                                 print(f"New City    : {c}")
@@ -998,18 +1020,12 @@ while flag == 1:
                                         print(f"Please add ${grandtotal - balance} to your balance!")
                                         input("\nPress enter to continue...")
                                     elif balance >= grandtotal:
-                                        ptli = ptlastint(processed_transaction)
-                                        newpt = "PT"+str(ptli+1).zfill(3)
-                                        dd = user[userKey][5]
-                                        aa = {dd[i][0] : dd[i][1] for i in dd}
 
-                                        ptlist = [newpt, userKey, aa, address, city, phonenum]
-                                        processed_transaction.append(ptlist)
-                                        
-                                        cartclearing_historyappending(userKey, transaction_history, transaction_history_amount, user, grandtotal)
-                                        new_balance = balance_subtracting(balance, grandtotal)
-                                        user[userKey][4] = round(new_balance,2)
-                                        input("\n\nItems have been checked out!\nPress enter to continue...")
+                                        if len(processed_transaction) > 0:
+                                            ptli = ptlastint(processed_transaction) + 1
+                                            add_processed_tr(ptli)
+                                        else:
+                                            add_processed_tr(1)
 
                             else:
                                 input("\n\nYou don't have anything to check out!\nPress enter to continue...")
