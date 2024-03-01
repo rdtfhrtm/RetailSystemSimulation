@@ -240,19 +240,28 @@ def fillUser(s):
             break 
     return a.strip().title(),b.strip().title(),c.strip().title(),d.strip()
 
-def fillItem(s):
+def fillItem(s,updx = 0):
     while True:
         itemnames = [item[i][0] for i in item]
-
         a = input(f"\nEnter new item's name {s}: ").title().strip()
-        if a.lower() == "cancel":
-            return a,0,0,0,'0'
-        elif a in itemnames:
-            print("Item already exists! \n")
-        elif a != "":
-            break
-        else:
-            print("Input cannot be blanked! \n")
+        
+        if updx == 0:
+            if a.lower() == "cancel":
+                return a,0,0,0,'0'
+            elif a in itemnames:
+                print("Item already exists! \n")
+            elif a != "":
+                break
+            else:
+                print("Input cannot be blanked! \n")
+        elif updx == 1:
+            if a.lower() == "cancel":
+                return a,0,0,0,'0'
+            elif a != "":
+                break
+            else:
+                print("Input cannot be blanked! \n")
+
     while True:
         b = input("Enter new item's price : ")
         if b.isdigit() == True and int(b) >= 0:
@@ -494,6 +503,26 @@ def add_processed_tr(intadd):
     user[userKey][4] = round(new_balance,2)
     input("\n\nItems have been checked out!\nPress enter to continue...")
 
+
+def dataconfuser(key,a,b,c,d,status = ""):
+    print(f"\n\n{key}")
+    print("--------------------")
+    print(f"{status}Name    : {a}")
+    print(f"{status}Address : {b}")
+    print(f"{status}City    : {c}")
+    print(f"{status}Phone   : {d}")
+
+def dataconfitem(key,a,b,c,d,e,status = ""):
+    print(f"\n\n{key}")
+    print(f"-------------------")
+    print(f"{status}Name          : {a}")
+    print(f"{status}Price         : {b}")
+    print(f"{status}Stock         : {c}")
+    print(f"{status}Discount Rate : {d}")
+    print(f"{status}Category      : {e}")
+
+
+
 #main menu ===================================
 flag = 1
 while flag == 1:
@@ -537,13 +566,7 @@ while flag == 1:
                                                 input("\nUser already exists!\nPress enter to continue...")        
                                             else:
                                                 cleartrm()
-                                                print(f"\n\nNEW USER - {newkey}")
-                                                print("--------------------")
-                                                print(f"New Name    : {a}")
-                                                print(f"New Address : {b}")
-                                                print(f"New City    : {c}")
-                                                print(f"New Phone   : {d}")
-
+                                                dataconfuser(newkey,a,b,c,d,"New ")
                                                 conf = input(f"\nDo you wish to create data for {newkey}? (y/n): ")
                                                 if conf == 'y':
                                                     user[newkey] = [a,b,c,d,0,{}]
@@ -604,7 +627,7 @@ while flag == 1:
 
                                                         parinp = format_phonenum(parinp) 
                                                         cleartrm()       
-                                                        print(f"\nNew phone : {parinp}")
+                                                        print(f"Updated phone : {parinp}")
                                                         conf1 = input("\nDo you wish to proceed with the update? (y/n) : ")
                                                         if conf1 == 'y':
                                                             user[x][3] = parinp
@@ -626,12 +649,7 @@ while flag == 1:
                                                     break                                 
                                                 d = format_phonenum(d)
                                                 cleartrm()
-                                                print(f"\n\nNew Data for {x}")
-                                                print("---------------------")
-                                                print(f"New Name    : {a}")
-                                                print(f"New Address : {b}")
-                                                print(f"New City    : {c}")
-                                                print(f"New Phone   : {d}")
+                                                dataconfuser(x,a,b,c,d,"Updated ")
 
                                                 conf = input(f"\nDo you wish to update the data for {x}? (y/n): ")
                                                 if conf == 'y':
@@ -668,12 +686,7 @@ while flag == 1:
                                             input("\nUser cannot be deleted! User still has items in cart!\nPress enter to continue...")
                                         else:
                                             cleartrm()
-                                            print(f"\n\n{x}")
-                                            print("---------------")
-                                            print(f"Name    : {user[x][0]}")
-                                            print(f"Address : {user[x][1]}")
-                                            print(f"City    : {user[x][2]}")
-                                            print(f"Phone   : {user[x][3]}")
+                                            dataconfuser(x,user[x][0],user[x][1],user[x][2],user[x][3])
 
                                             conf = input(f"\nDo you wish to delete {x} data? (y/n): ")
                                             if conf == 'y':
@@ -700,13 +713,7 @@ while flag == 1:
                                     if a == "Cancel":
                                         break
                                     cleartrm()
-                                    print(f"\n\nNEW ITEM - {newkey}")
-                                    print("--------------------")
-                                    print(f"Name          : {a}")
-                                    print(f"Price         : {b}")
-                                    print(f"Stock         : {c}")
-                                    print(f"Discount Rate : {d}")
-                                    print(f"Category      : {e}")
+                                    dataconfitem(newkey,a,b,c,d,e,"New ")
                                     conf = input(f"\nDo you wish to add this item ? (y/n): ")
                                     if conf == 'y':
                                         item[newkey] = [a.title(),b,c,d,e.title()]
@@ -724,20 +731,15 @@ while flag == 1:
                                     else:
                                         cleartrm()
                                         print(f"\n\nUpdate for {x}\n\n")
-                                        a,b,c,d,e = fillItem("")
+                                        a,b,c,d,e = fillItem("", updx=1)
                                         if a == "cancel":
                                             break                                        
                                         a = a.title()
                                         e = e.title()
 
                                         cleartrm()
-                                        print(f"\n\n{x}")
-                                        print(f"-------------------")
-                                        print(f"Name          : {a}")
-                                        print(f"Price         : {b}")
-                                        print(f"Stock         : {c}")
-                                        print(f"Discount Rate : {d}")
-                                        print(f"Category      : {e}")
+                                        dataconfitem(x,a,b,c,d,e,"Updated ")
+
                                         conf = input(f"\nDo you wish to update the item ? (y/n): ")
                                         if conf == 'y':
                                             for i,j in enumerate([a,b,c,d,e]):
@@ -764,10 +766,13 @@ while flag == 1:
                                         if len(dictdel) > 0:
                                             input("\nItem cannot be deleted! Item still in customer's cart!\nPress enter to continue...")   
                                         else:
+                                            cleartrm()
+                                            dataconfitem(x,item[x][0],item[x][1],item[x][2],item[x][3],item[x][4])
                                             conf = input(f"\nDo you wish to delete this item ? (y/n):")
                                             if conf == 'y':
                                                 item.pop(x)
-                                                input("\nItem deleted!\nPress enter to continue...")
+                                                print("\nItem deleted!")
+                                            input("\nPress enter to continue...")
 
                                 elif admInput == 9:
                                     #SEARCH USER DETAILS
@@ -847,9 +852,11 @@ while flag == 1:
                                 if addcart == 'CANCEL':
                                             break
                                 else:
-                                    addtocart(item,user,addcart,userKey)
-
-                                itemaddednotif()   
+                                    if item[addcart][2] == 0:
+                                        input("\nItem sold out!\nPress enter to continue...")
+                                    else:
+                                        addtocart(item,user,addcart,userKey)
+                                        itemaddednotif()
                             else:
                                 input("\nNo Data for this condition! \nPress enter to continue...")
 
@@ -878,8 +885,11 @@ while flag == 1:
                                             if addcart == 'CANCEL':
                                                         break
                                             else:
-                                                addtocart(item,user,addcart,userKey)
-                                            itemaddednotif() 
+                                                if item[addcart][2] == 0:
+                                                    input("\nItem sold out!\nPress enter to continue...")
+                                                else:
+                                                    addtocart(item,user,addcart,userKey)
+                                                    itemaddednotif()
                                             break  
                                         else:
                                             input("\nNo Data for this condition! \nPress enter to continue...")
@@ -901,9 +911,11 @@ while flag == 1:
                                     if addcart == 'CANCEL':
                                                 break
                                     else:
-                                        addtocart(item,user,addcart,userKey)
-
-                                    itemaddednotif()   
+                                        if item[addcart][2] == 0:
+                                            input("\nItem sold out!\nPress enter to continue...")
+                                        else:
+                                            addtocart(item,user,addcart,userKey)
+                                            itemaddednotif()
                                 else:
                                     input("\nNo Data for this condition! \nPress enter to continue...")                           
                                 
@@ -941,9 +953,11 @@ while flag == 1:
                                 if addcart == 'CANCEL':
                                             break
                                 else:
-                                    addtocart(item,user,addcart,userKey)
-
-                                itemaddednotif()   
+                                    if item[addcart][2] == 0:
+                                        input("\nItem sold out!\nPress enter to continue...")
+                                    else:
+                                        addtocart(item,user,addcart,userKey)
+                                        itemaddednotif()
                             else:
                                 input("\nNo Data for this condition! \nPress enter to continue...")
 
@@ -956,7 +970,6 @@ while flag == 1:
                             cleartrm()
                             tempdict = {i: item.get(i) for i in item if listRange[0]<= item[i][1] <= listRange[1]}
                             tempdict = dict(sorted(tempdict.items(), key = lambda i:i[1][1]))
-                            
                             if len(tempdict) > 0:
                                 while True:
                                         cleartrm()
@@ -968,8 +981,11 @@ while flag == 1:
                                 if addcart == 'CANCEL':
                                             break
                                 else:
-                                    addtocart(item,user,addcart,userKey)
-                                    itemaddednotif()
+                                    if item[addcart][2] == 0:
+                                        input("\nItem sold out!\nPress enter to continue...")
+                                    else:
+                                        addtocart(item,user,addcart,userKey)
+                                        itemaddednotif()
                             else:
                                 input("\nNo Data for this condition! \nPress enter to continue...")
                                     
